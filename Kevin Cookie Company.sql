@@ -11,7 +11,7 @@ SELECT
 FROM
     kcc_products_list_db;
 
--- Which the top selling Cookie?
+-- Which are the top selling Cookie?
 SELECT 
     pl.CookieName, COUNT(op.Quantity) AS Ordered_Quantity
 FROM
@@ -266,6 +266,7 @@ WHERE CookieID=C_ID
 GROUP BY CookieID, CookieName;
 END$$
 DELIMITER ;
+
 -- If the store operator wants to know the details about a particular customer with the customer ID then the below procedure:
 
 DELIMITER $$ 
@@ -276,17 +277,3 @@ FROM kcc_customer_db
 WHERE CustomerID=Cust_ID;
 END$$
 DELIMITER ;
-
-        
-
---------------------------------------------------------------
-
-
---------------------------------------------
-SELECT monthname(STR_TO_DATE(OrderDate, '%d-%m-%Y')), count(OrderDate) FROM kcc_orders_db
-group by monthname(STR_TO_DATE(OrderDate, '%d-%m-%Y'));
-
-
-
-
-
